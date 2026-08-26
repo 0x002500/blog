@@ -13,7 +13,9 @@ if (!siteUrl || !/^https?:\/\//.test(siteUrl)) {
 }
 
 const contentDirectory = path.resolve('content')
-const outputDirectory = path.resolve('.output/public')
+const outputDirectory = path.resolve(
+  process.env.CF_PAGES === '1' ? 'dist' : '.output/public',
+)
 const files = findContentMarkdownFiles(contentDirectory)
 
 assertUniqueContentRoutes(files)
