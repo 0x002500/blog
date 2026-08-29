@@ -184,7 +184,7 @@ function focusFromBackground(event: MouseEvent) {
 }
 
 onMounted(() => {
-  if (window.matchMedia('(pointer: fine)').matches) inputElement.value?.focus()
+  if (window.matchMedia('(pointer: fine)').matches) inputElement.value?.focus({ preventScroll: true })
 })
 </script>
 
